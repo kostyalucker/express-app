@@ -22,7 +22,7 @@ app.post('/cookie', (req, res) => {
     httpOnly: true,
     sameSite: 'none',
     secure: true,
-    domain: 'localhost:8080',
+    domain: 'http://localhost:8080',
     path: '/',
   });
 
