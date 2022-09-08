@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const port = 5000; 
 
 const corsOptions = { 
-  origin: ["http://localhost:8080"],
+  origin: ["https://dev-romb-static.website.yandexcloud.net"],
   credentials: true,
   methods: ['PUT, GET, POST, OPTIONS, DELETE'],
   allowHeaders: ["DNT,X-CustomHeader,X-LANG,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Api-Key,X-Device-Id,Access-Control-Allow-Origin,Authorization,Accept-Language,Api-Key"],
@@ -19,7 +19,9 @@ app.use(cookieParser());
 
 app.get('/set-cookie', (req, res) => {
   res.cookie('foo', 'bar', {
-    secure: false,
+    maxAge: 30000,
+    sameSite: 'none',
+    secure: true
   });
 
   res.send('cookie setted');
