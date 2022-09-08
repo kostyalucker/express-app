@@ -28,6 +28,12 @@ app.post('/cookie', (req, res) => {
   res.json({  status: 200, message : 'Hello, man!' });
 })
 
+app.post('/cookie-check', (req, res) => {
+  console.log(req.cookie)
+
+  res.json({  status: 200, message : 'checking!' });
+})
+
 app.listen(port, () => {  
   console.log('listening on port ' + port);
 });
