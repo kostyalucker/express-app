@@ -29,4 +29,6 @@ app.get('/cookie', (req, res) => {
   res.json({  status: 200, message : 'Hello, man!' });
 })
 
-app.listen(port);
+app.listen(port, () => {  
+  console.log('listening on port ' + port);
+});
