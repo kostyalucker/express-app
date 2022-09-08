@@ -21,13 +21,14 @@ app.post('/cookie', (req, res) => {
   res.cookie('refreshFromExpress', 'myRefreshToken', {
     httpOnly: true,
     sameSite: 'none',
+    secure: true,
     path: '/',
   });
 
   res.json({  status: 200, message : 'Hello, man!' });
 })
 
-app.get('/cookie-check', (req, res) => {
+app.post('/cookie-check', (req, res) => {
   console.log(req.cookie)
 
   res.json({  status: 200, message : 'checking!' });
