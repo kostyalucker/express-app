@@ -21,7 +21,8 @@ app.get('/set-cookie', (req, res) => {
   res.cookie('foo', 'bar', {
     maxAge: 30000,
     sameSite: 'none',
-    secure: true
+    secure: true,
+    httpOnly: true
   });
 
   res.send('cookie setted');
