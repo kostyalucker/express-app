@@ -17,7 +17,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
-app.get('/cookie', (req, res) => {
+app.post('/cookie', (req, res) => {
   res.cookie('refreshFromExpress', 'myRefreshToken', {
     httpOnly: true,
     sameSite: 'none',
