@@ -19,7 +19,9 @@ app.use(cookieParser());
 
 app.post('/cookie', (req, res) => {
   res.cookie('refreshFromExpress', 'myRefreshToken', {
-    httpOnly: true
+    httpOnly: true,
+    sameSite: 'none',
+    secure: true,
   });
 
   res.json({  status: 200, message : 'Hello, man!' });
