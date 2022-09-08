@@ -18,14 +18,16 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.post('/cookie', (req, res) => {
-  res.cookie('refreshFromExpress', 'myRefreshToken');
+  res.cookie('refreshFromExpress', 'myRefreshToken', {
+    httpOnly: true
+  });
 
   res.json({  status: 200, message : 'Hello, man!' });
 })
 
 app.post('/cookie-check', (req, res) => {
-  console.log(req.cookie)
-
+  console.log(req.cookies.refreshFromExpress)
+  
   res.json({  status: 200, message : 'checking!' });
 })
 
