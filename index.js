@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const port = 5000; 
 
 const corsOptions = { 
-  origin: ['https://dev-romb-static.website.yandexcloud.net'],
+  origin: ['http://localhost:8080'],
   credentials: true,
   methods: ['PUT, GET, POST, OPTIONS, DELETE'],
   allowHeaders: ["DNT,X-CustomHeader,X-LANG,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Api-Key,X-Device-Id,Access-Control-Allow-Origin,Authorization,Accept-Language,Api-Key"],
@@ -22,7 +22,7 @@ app.post('/cookie', (req, res) => {
     httpOnly: true,
     sameSite: 'none',
     secure: true,
-    domain: 'dev-romb-static.website.yandexcloud.net',
+    domain: 'localhost:8080',
     path: '/',
   });
 
