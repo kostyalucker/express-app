@@ -17,20 +17,22 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
-app.post('/cookie', (req, res) => {
-  res.cookie('refreshFromExpress', 'myRefreshToken', {
-    httpOnly: true,
-    sameSite: 'none',
-    secure: true,
+app.get('/set-cookie', (req, res) => {
+  res.cookie('foo', 'bar', {
+    httpOnly: true
   });
 
-  res.json({  status: 200, message : 'Hello, man!' });
+  res.send('cookie setted');
 })
 
-app.post('/cookie-check', (req, res) => {
-  console.log(req.cookies.refreshFromExpress)
-  
-  res.json({  status: 200, message : 'checking!' });
+app.get('/get-cookie', (req, res) => {
+  console.log(req.cookies);
+  res.send(req.cookies);
+})
+
+app.get('/del-cookie', (req, res) => {
+  res.clearCookie('foo');
+  res.send('cookie deleted');
 })
 
 app.listen(port, () => {  
