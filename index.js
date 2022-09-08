@@ -19,8 +19,6 @@ app.use(cookieParser());
 
 app.get('/set-cookie', (req, res) => {
   res.cookie('foo', 'bar', {
-    httpOnly: true,
-    sameSite: 'none',
     secure: false,
   });
 
