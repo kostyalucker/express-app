@@ -18,7 +18,7 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.get('/set-cookie', (req, res) => {
-  res.cookie('foo', 'bar', {
+  res.cookie('foo1', 'bar', {
     maxAge: 30000,
     sameSite: 'none',
     secure: true,
