@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const port = 5000; 
 
 const corsOptions = { 
-  origin: ['http://localhost:8080'],
+  origin: "*",
   credentials: true,
   methods: ['PUT, GET, POST, OPTIONS, DELETE'],
   allowHeaders: ["DNT,X-CustomHeader,X-LANG,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Api-Key,X-Device-Id,Access-Control-Allow-Origin,Authorization,Accept-Language,Api-Key"],
@@ -21,14 +21,13 @@ app.post('/cookie', (req, res) => {
   res.cookie('refreshFromExpress', 'myRefreshToken', {
     httpOnly: true,
     sameSite: 'none',
-    secure: true,
     path: '/',
   });
 
   res.json({  status: 200, message : 'Hello, man!' });
 })
 
-app.post('/cookie-check', (req, res) => {
+app.get('/cookie-check', (req, res) => {
   console.log(req.cookie)
 
   res.json({  status: 200, message : 'checking!' });
