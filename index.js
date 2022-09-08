@@ -18,11 +18,7 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.post('/cookie', (req, res) => {
-  res.cookie('refreshFromExpress', 'myRefreshToken', {
-    sameSite: 'none',
-    secure: true,
-    path: '/',
-  });
+  res.cookie('refreshFromExpress', 'myRefreshToken');
 
   res.json({  status: 200, message : 'Hello, man!' });
 })
